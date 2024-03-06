@@ -25,8 +25,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ja',
+    locales: ['ja'],
   },
 
   presets: [
@@ -53,7 +53,57 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  plugins: [
+ //   './plugins/docusaurus-plugin-ga4-custom-dimension',
+    [
+      '@cmfcmf/docusaurus-search-local',
+      {
+        // Options here
+        indexDocs: true,
+        indexDocSidebarParentCategories: 0,
+        indexBlog: false,
+        indexPages: false,
+        language: ['ja', 'en'],
+        maxSearchResults: 20,
+        lunr: {
+          tokenizerSeparator: /[\s\-\u{3000}-\u{301C}\u{3041}-\u{3093}\u{309B}-\u{309E}]+/mu,
+          b: 0.75,
+          k1: 1.2,
+          titleBoost: 5,
+          contentBoost: 1,
+          tagsBoost: 3,
+          parentCategoriesBoost: 2, // Only used when indexDocSidebarParentCategories > 0
+        }
+      },
+    ],
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 100,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 4, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
+    [
+      'plugin-image-zoom', {
+        imageZoom: {
+          // CSS selector to apply the plugin to, defaults to '.markdown img'
+          selector: '.markdown :not(em) > img',
+          // Optional medium-zoom options
+          // see: https://www.npmjs.com/package/medium-zoom#options
+          options: {
+            margin: 24,
+            background: '#BADA55',
+            scrollOffset: 200,
+            container: '#zoom-container',
+            template: '#zoom-template',
+          },
+        },
+      }
+    ],
+  ],
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
