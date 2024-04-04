@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.1.0",
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/plugin-ideal-image": "^3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/core": "3.2.0",
+    "@docusaurus/plugin-ideal-image": "^3.2.0",
+    "@docusaurus/preset-classic": "3.2.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
@@ -27,9 +27,9 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.1.1",
-    "@docusaurus/tsconfig": "3.1.1",
-    "@docusaurus/types": "3.1.1",
+    "@docusaurus/module-type-aliases": "3.2.0",
+    "@docusaurus/tsconfig": "3.2.0",
+    "@docusaurus/types": "3.2.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {
